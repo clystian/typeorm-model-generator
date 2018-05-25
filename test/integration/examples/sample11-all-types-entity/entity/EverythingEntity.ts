@@ -2,15 +2,15 @@ import { PrimaryGeneratedColumn, Column, Entity, OneToOne, JoinColumn, Index } f
 
 @Entity("EverythingEntity")
 export class EverythingEntity {
-//TODO: change to check column types per database engine 
+    //TODO: change to check column types per database engine
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
     name: string;
 
-    @Column("text")
-    text: string;
+    // @Column("text")
+    // text: string;
 
     @Column({ length: 32 })
     shortTextColumn: string;
@@ -27,8 +27,8 @@ export class EverythingEntity {
     @Column("smallint")
     smallintColumn: number;
 
-    @Column("bigint")
-    bigintColumn: number;
+    // @Column("bigint")
+    // bigintColumn: number;
 
     // @Column("float")
     // floatColumn: number;
@@ -36,17 +36,17 @@ export class EverythingEntity {
     // @Column("double")
     // doubleColumn: number;
 
-    @Column("decimal")
-    decimalColumn: number;
+    // @Column("decimal")
+    // decimalColumn: number;
 
     @Column()
     date: Date;
 
-    @Column("date")
-    dateColumn: Date;
+    // @Column("date")
+    // dateColumn: Date;
 
-    @Column("time")
-    timeColumn: Date;
+    // @Column("time")
+    // timeColumn: Date;
 
     // @Column("boolean")
     // isBooleanColumn: boolean;

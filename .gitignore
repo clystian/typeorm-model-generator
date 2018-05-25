@@ -2,6 +2,7 @@ node_modules/
 npm-debug.log
 ormconfig.json
 .vscode
+.idea
 typings/
 **/*.js
 **/*.js.map
@@ -11,3 +12,4 @@ coverage/
 .env
 dist
 *.tgz
+!gulpfile.js

@@ -1,30 +1,24 @@
-import { ColumnInfo } from './ColumnInfo'
-/**
- * EntityInfo
- */
+import { ColumnInfo } from "./ColumnInfo";
+
 export class EntityInfo {
     EntityName: string;
     Columns: ColumnInfo[];
+    Imports: string[];
+    UniqueImports: string[];
     Indexes: IndexInfo[];
+    Schema: string;
+    GenerateConstructor: boolean;
 
     relationImports(): any {
-            var returnString = "";
-            var imports: string[] = [];
-            this.Columns.forEach((column) => {
-                column.relations.forEach(
-                    (relation) => {
-                        if (this.EntityName!=relation.relatedTable)
-                        imports.push(relation.relatedTable);
-                    }
-                )
+        var imports: string[] = [];
+        this.Columns.forEach(column => {
+            column.relations.forEach(relation => {
+                if (this.EntityName != relation.relatedTable)
+                    imports.push(relation.relatedTable);
             });
-            imports.filter(function (elem, index, self) {
-                return index == self.indexOf(elem);
-            }).forEach((imp)=>{
-                returnString+=`import {${imp}} from './${imp}'\n`
-            })
-
-            return returnString;
+        });
+        this.UniqueImports = imports.filter(function(elem, index, self) {
+            return index == self.indexOf(elem);
+        });
     }
-  
 }
